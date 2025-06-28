@@ -1,9 +1,17 @@
 {
-  "item.forgelands.orichalcum": "Orichalcum",
-  "item.forgelands.raw_orichalcum": "Raw Orichalcum",
+  "item.forgelands.tungsten": "Tungsten Ingot",
+  "item.forgelands.raw_tungsten": "Raw Tungsten",
 
-  "block.forgelands.orichalcum_ore": "Orichalcum Ore",
-  "block.forgelands.orichalcum_block": "Block of Orichalcum",
+  "item.forgelands.coal_dust": "Coal Dust",
+  "item.forgelands.iron_dust": "Iron Dust",
+  "item.forgelands.copper_dust": "Copper Dust",
+  "item.forgelands.gold_dust": "Gold Dust",
+  "item.forgelands.tungsten_dust": "Tungsten Dust",
+
+  "block.forgelands.tungsten_ore": "Tungsten Ore",
+  "block.forgelands.tungsten_block": "Block of Tungsten",
+
+  "block.forgelands.crusher_block": "Crusher Block",
 
   "creativetab.forgelands.Forgelands": "Forgelands"
 }

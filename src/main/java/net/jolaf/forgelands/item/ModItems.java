@@ -11,10 +11,22 @@ public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, Forgelands.MOD_ID);
 
-    public static final RegistryObject<Item> ORICHALCUM = ITEMS.register("orichalcum",
+    public static final RegistryObject<Item> TUNGSTEN = ITEMS.register("tungsten",
             () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> RAW_ORICHALCUM = ITEMS.register("raw_orichalcum",
+    public static final RegistryObject<Item> RAW_TUNGSTEN = ITEMS.register("raw_tungsten",
             () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> COAL_DUST = ITEMS.register("coal_dust",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> IRON_DUST = ITEMS.register("iron_dust",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> COPPER_DUST = ITEMS.register("copper_dust",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> GOLD_DUST = ITEMS.register("gold_dust",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> TUNGSTEN_DUST = ITEMS.register("tungsten_dust",
+            () -> new Item(new Item.Properties()));
+
 
 
     public static void register(IEventBus eventBus) {

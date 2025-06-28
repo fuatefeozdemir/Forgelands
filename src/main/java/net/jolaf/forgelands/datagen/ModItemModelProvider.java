@@ -13,7 +13,14 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        basicItem(ModItems.ORICHALCUM.get());
-        basicItem(ModItems.RAW_ORICHALCUM.get());
+        basicItem(ModItems.TUNGSTEN.get());
+        basicItem(ModItems.RAW_TUNGSTEN.get());
+
+        basicItem(ModItems.COAL_DUST.get());
+        basicItem(ModItems.IRON_DUST.get());
+        basicItem(ModItems.COPPER_DUST.get());
+        basicItem(ModItems.GOLD_DUST.get());
+        basicItem(ModItems.TUNGSTEN_DUST.get());
+
     }
 }

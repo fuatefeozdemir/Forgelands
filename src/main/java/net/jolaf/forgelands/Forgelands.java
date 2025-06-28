@@ -53,13 +53,14 @@ public class Forgelands
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if(event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
-            event.accept(ModItems.ORICHALCUM);
-            event.accept(ModItems.RAW_ORICHALCUM);
+            event.accept(ModItems.TUNGSTEN);
+            event.accept(ModItems.RAW_TUNGSTEN);
         }
 
         if(event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
-            event.accept(ModBlocks.ORICHALCUM_ORE);
-            event.accept(ModBlocks.ORICHALCUM_BLOCK);
+            event.accept(ModBlocks.TUNGSTEN_ORE);
+            event.accept(ModBlocks.TUNGSTEN_BLOCK);
+            event.accept(ModBlocks.CRUSHER_BLOCK);
         }
     }
 

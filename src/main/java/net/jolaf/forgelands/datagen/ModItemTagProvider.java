@@ -21,6 +21,11 @@ public class ModItemTagProvider extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
-        tag(ModTags.Items.TRANSFORMABLE_ITEMS);
+        tag(ModTags.Items.PULVERIZABLE_INGOTS)
+                .add(Items.COAL)
+                .add(Items.IRON_INGOT)
+                .add(Items.COPPER_INGOT)
+                .add(Items.GOLD_INGOT)
+                .add(ModItems.TUNGSTEN.get());
     }
 }

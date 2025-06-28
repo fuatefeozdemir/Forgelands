@@ -20,22 +20,21 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     @Override
     protected void buildRecipes(RecipeOutput pRecipeOutput) {
-        List<ItemLike> ORICHALCUM_SMELTABLES = List.of(ModItems.ORICHALCUM.get(), ModBlocks.ORICHALCUM_ORE.get(),
-                ModBlocks.DEEPSLATE_ORICHALCUM_ORE.get());
+        List<ItemLike> ORICHALCUM_SMELTABLES = List.of(ModItems.TUNGSTEN.get(), ModBlocks.TUNGSTEN_ORE.get());
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.ORICHALCUM_BLOCK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.TUNGSTEN_BLOCK.get())
                 .pattern("AAA")
                 .pattern("AAA")
                 .pattern("AAA")
-                .define('A', ModItems.ORICHALCUM.get())
-                .unlockedBy(getHasName(ModItems.ORICHALCUM.get()), has(ModItems.ORICHALCUM.get())).save(pRecipeOutput);
+                .define('A', ModItems.TUNGSTEN.get())
+                .unlockedBy(getHasName(ModItems.TUNGSTEN.get()), has(ModItems.TUNGSTEN.get())).save(pRecipeOutput);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.ORICHALCUM.get(), 9)
-                .requires(ModBlocks.ORICHALCUM_BLOCK.get())
-                .unlockedBy(getHasName(ModBlocks.ORICHALCUM_BLOCK.get()), has(ModBlocks.ORICHALCUM_BLOCK.get())).save(pRecipeOutput);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.TUNGSTEN.get(), 9)
+                .requires(ModBlocks.TUNGSTEN_BLOCK.get())
+                .unlockedBy(getHasName(ModBlocks.TUNGSTEN_BLOCK.get()), has(ModBlocks.TUNGSTEN_BLOCK.get())).save(pRecipeOutput);
 
-        oreSmelting(pRecipeOutput, ORICHALCUM_SMELTABLES, RecipeCategory.MISC, ModItems.ORICHALCUM.get(), 0.25f, 200, "orichalcum");
-        oreBlasting(pRecipeOutput, ORICHALCUM_SMELTABLES, RecipeCategory.MISC, ModItems.ORICHALCUM.get(), 0.25f, 100, "orichalcum");
+        oreSmelting(pRecipeOutput, ORICHALCUM_SMELTABLES, RecipeCategory.MISC, ModItems.TUNGSTEN.get(), 0.25f, 200, "orichalcum");
+        oreBlasting(pRecipeOutput, ORICHALCUM_SMELTABLES, RecipeCategory.MISC, ModItems.TUNGSTEN.get(), 0.25f, 100, "orichalcum");
 
     }
 

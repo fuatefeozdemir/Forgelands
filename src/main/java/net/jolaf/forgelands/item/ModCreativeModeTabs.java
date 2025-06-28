@@ -15,13 +15,21 @@ public class ModCreativeModeTabs {
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Forgelands.MOD_ID);
 
     public static final RegistryObject<CreativeModeTab> ALEXANDRITE_ITEMS_TAB = CREATIVE_MODE_TABS.register("forgelands_tab",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.ORICHALCUM.get()))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.TUNGSTEN.get()))
                     .title(Component.translatable("creativetab.forgelands.Forgelands"))
                     .displayItems((itemDisplayParameters, output) -> {
-                        output.accept(ModItems.ORICHALCUM.get());
-                        output.accept(ModItems.RAW_ORICHALCUM.get());
-                        output.accept(ModBlocks.ORICHALCUM_ORE.get());
-                        output.accept(ModBlocks.ORICHALCUM_BLOCK.get());
+                        output.accept(ModItems.TUNGSTEN.get());
+                        output.accept(ModItems.RAW_TUNGSTEN.get());
+
+                        output.accept(ModItems.COAL_DUST.get());
+                        output.accept(ModItems.IRON_DUST.get());
+                        output.accept(ModItems.COPPER_DUST.get());
+                        output.accept(ModItems.GOLD_DUST.get());
+                        output.accept(ModItems.TUNGSTEN_DUST.get());
+
+                        output.accept(ModBlocks.TUNGSTEN_ORE.get());
+                        output.accept(ModBlocks.TUNGSTEN_BLOCK.get());
+                        output.accept(ModBlocks.CRUSHER_BLOCK.get());
 
                     }).build());
 

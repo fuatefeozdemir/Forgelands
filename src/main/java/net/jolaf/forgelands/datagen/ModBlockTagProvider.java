@@ -19,11 +19,13 @@ public class ModBlockTagProvider extends BlockTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .add(ModBlocks.ORICHALCUM_ORE.get())
-                .add(ModBlocks.ORICHALCUM_BLOCK.get());
+                .add(ModBlocks.TUNGSTEN_ORE.get())
+                .add(ModBlocks.TUNGSTEN_BLOCK.get())
+                .add(ModBlocks.CRUSHER_BLOCK.get());
 
         tag(BlockTags.NEEDS_IRON_TOOL)
-                .add(ModBlocks.ORICHALCUM_ORE.get())
-                .add(ModBlocks.ORICHALCUM_BLOCK.get());
+                .add(ModBlocks.TUNGSTEN_ORE.get())
+                .add(ModBlocks.TUNGSTEN_BLOCK.get())
+                .add(ModBlocks.CRUSHER_BLOCK.get());
     }
 }
