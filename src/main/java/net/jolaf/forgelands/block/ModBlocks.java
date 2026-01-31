@@ -1,6 +1,7 @@
 package net.jolaf.forgelands.block;
 
 import net.jolaf.forgelands.Forgelands;
+import net.jolaf.forgelands.block.custom.CrusherBlock;
 import net.jolaf.forgelands.item.ModItems;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
@@ -12,9 +13,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegisterEvent;
 import net.minecraftforge.registries.RegistryObject;
-
 
 import java.util.function.Supplier;
 
@@ -23,17 +22,19 @@ public class ModBlocks {
             DeferredRegister.create(ForgeRegistries.BLOCKS, Forgelands.MOD_ID);
 
     public static final RegistryObject<Block> TUNGSTEN_ORE = registerBlock("tungsten_ore",
-            () -> new DropExperienceBlock(UniformInt.of(2, 2),BlockBehaviour.Properties.of()
+            () -> new DropExperienceBlock(UniformInt.of(2, 2), BlockBehaviour.Properties.of()
                     .strength(6f).requiresCorrectToolForDrops()));
+
     public static final RegistryObject<Block> TUNGSTEN_BLOCK = registerBlock("tungsten_block",
             () -> new Block(BlockBehaviour.Properties.of()
                     .strength(6f).requiresCorrectToolForDrops().sound(SoundType.METAL)));
+
     public static final RegistryObject<Block> CRUSHER_BLOCK = registerBlock("crusher_block",
-            () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(4f).requiresCorrectToolForDrops()));
-
-
-
+            () -> new CrusherBlock(BlockBehaviour.Properties.of()
+                    .strength(4f)
+                    .requiresCorrectToolForDrops()
+                    .noOcclusion() // <--- SİYAH ŞERİDİ KALDIRAN KRİTİK KOMUT
+            ));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

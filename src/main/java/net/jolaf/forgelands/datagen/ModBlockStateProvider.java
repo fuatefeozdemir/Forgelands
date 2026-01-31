@@ -2,8 +2,10 @@ package net.jolaf.forgelands.datagen;
 
 import net.jolaf.forgelands.Forgelands;
 import net.jolaf.forgelands.block.ModBlocks;
+import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.client.model.generators.BlockModelBuilder;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
@@ -16,11 +18,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        // Tungsten Ore ve Tungsten Block ile ilgili modelleri kaydet
         blockWithItem(ModBlocks.TUNGSTEN_ORE);
         blockWithItem(ModBlocks.TUNGSTEN_BLOCK);
 
-        // CrusherBlock ile ilgili modeli kaydet
         crusherBlock(ModBlocks.CRUSHER_BLOCK);
     }
 
@@ -29,8 +29,24 @@ public class ModBlockStateProvider extends BlockStateProvider {
     }
 
     private void crusherBlock(RegistryObject<Block> blockRegistryObject) {
-            simpleBlockWithItem(blockRegistryObject.get(), models().withExistingParent("crusher_block", "block/cube_all")
-                    .texture("all", "forgelands:block/crusher_block"));
-        }
-    }
+        BlockModelBuilder crusherModel = models().withExistingParent("crusher_block", "block/block")
+                .texture("particle", modLoc("block/crusherblock_side"))
+                .texture("down", modLoc("block/crusherblock_side"))
+                .texture("up", modLoc("block/crusherblock_top"))
+                .texture("side", modLoc("block/crusherblock_side"));
 
+        // Eleman tanımı (0-13px yükseklik)
+        crusherModel.element()
+                .from(0, 0, 0)
+                .to(16, 13, 16)
+                .face(Direction.DOWN).texture("#down").cullface(Direction.DOWN).end()
+                .face(Direction.UP).texture("#up").end() // CULLFACE YOK: Bu siyahlığı bitirir
+                .face(Direction.NORTH).texture("#side").end()
+                .face(Direction.SOUTH).texture("#side").end()
+                .face(Direction.EAST).texture("#side").end()
+                .face(Direction.WEST).texture("#side").end()
+                .end();
+
+        simpleBlockWithItem(blockRegistryObject.get(), crusherModel);
+    }
+}
