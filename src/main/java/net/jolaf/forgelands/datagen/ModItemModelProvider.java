@@ -13,7 +13,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        basicItem(ModItems.TUNGSTEN.get());
+        basicItem(ModItems.TUNGSTEN_INGOT.get());
         basicItem(ModItems.RAW_TUNGSTEN.get());
 
         basicItem(ModItems.COAL_DUST.get());

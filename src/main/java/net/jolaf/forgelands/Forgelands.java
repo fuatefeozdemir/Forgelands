@@ -6,6 +6,7 @@ import net.jolaf.forgelands.block.ModBlocks;
 import net.jolaf.forgelands.block.custom.CrusherBlockEntityRenderer;
 import net.jolaf.forgelands.item.ModCreativeModeTabs;
 import net.jolaf.forgelands.item.ModItems;
+import net.jolaf.forgelands.recipe.ModRecipes;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
@@ -35,6 +36,7 @@ public class Forgelands {
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
         ModBlockEntities.register(modEventBus);
+        ModRecipes.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::addCreative);
@@ -48,7 +50,7 @@ public class Forgelands {
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         // Tungsten ve Crusher eşyalarını sekmeye ekle
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
-            event.accept(ModItems.TUNGSTEN);
+            event.accept(ModItems.TUNGSTEN_INGOT);
             event.accept(ModItems.RAW_TUNGSTEN);
             event.accept(ModBlocks.TUNGSTEN_ORE);
             event.accept(ModBlocks.TUNGSTEN_BLOCK);

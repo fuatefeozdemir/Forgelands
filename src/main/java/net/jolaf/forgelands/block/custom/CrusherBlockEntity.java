@@ -17,8 +17,8 @@ public class CrusherBlockEntity extends BlockEntity {
         protected void onContentsChanged(int slot) {
             setChanged();
             if (level != null && !level.isClientSide) {
-                // Bloğun güncellendiğini istemciye (renderer'a) bildirir
-                level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
+                // Değişikliği tüm istemcilere bildir
+                level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), 3);
             }
         }
     };
@@ -35,7 +35,9 @@ public class CrusherBlockEntity extends BlockEntity {
     protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.loadAdditional(tag, registries);
         if (tag.contains("inventory")) {
-            itemHandler.deserializeNBT(registries, tag.getCompound("inventory"));
+            // Mantıksal Hata Çözümü: Veriyi yüklemeden önce slotu temizle
+            this.itemHandler.setStackInSlot(0, net.minecraft.world.item.ItemStack.EMPTY);
+            this.itemHandler.deserializeNBT(registries, tag.getCompound("inventory"));
         }
     }
 
@@ -45,8 +47,6 @@ public class CrusherBlockEntity extends BlockEntity {
         tag.put("inventory", itemHandler.serializeNBT(registries));
     }
 
-    // --- RENDERER İÇİN GEREKLİ SENKRONİZASYON METOTLARI ---
-
     @Override
     public Packet<ClientGamePacketListener> getUpdatePacket() {
         return ClientboundBlockEntityDataPacket.create(this);
@@ -54,6 +54,20 @@ public class CrusherBlockEntity extends BlockEntity {
 
     @Override
     public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
-        return saveWithoutMetadata(registries);
+        CompoundTag tag = new CompoundTag();
+        saveAdditional(tag, registries);
+        return tag;
+    }
+
+    @Override
+    public void onDataPacket(net.minecraft.network.Connection net, ClientboundBlockEntityDataPacket pkt, HolderLookup.Provider registries) {
+        CompoundTag tag = pkt.getTag();
+        if (tag != null) {
+            // Paketi yükle ve görüntüyü tazele
+            loadAdditional(tag, registries);
+            if (level != null && level.isClientSide) {
+                level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), 3);
+            }
+        }
     }
 }

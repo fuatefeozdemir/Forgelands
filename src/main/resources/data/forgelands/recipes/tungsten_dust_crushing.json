@@ -1,0 +1,10 @@
+{
+  "type": "forgelands:crushing",
+  "ingredient": {
+    "tag": "c:ingots/tungsten"
+  },
+  "result": {
+    "count": 1,
+    "item": "forgelands:tungsten_dust"
+  }
+}

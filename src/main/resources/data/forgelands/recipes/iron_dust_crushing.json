@@ -1,0 +1,10 @@
+{
+  "type": "forgelands:crushing",
+  "ingredient": {
+    "tag": "c:ingots/iron"
+  },
+  "result": {
+    "count": 1,
+    "item": "forgelands:iron_dust"
+  }
+}

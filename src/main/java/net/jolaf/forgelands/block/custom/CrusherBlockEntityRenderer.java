@@ -30,29 +30,12 @@ public class CrusherBlockEntityRenderer implements BlockEntityRenderer<CrusherBl
             int lightAbove = LevelRenderer.getLightColor(level, pBlockEntity.getBlockPos().above());
 
             pPoseStack.pushPose();
-
-            // YÜKSEKLİK DÜZELTMESİ:
-            // 1.02D yerine 0.85D - 0.9D arası bir değer eşyayı Depot'un tam üstüne oturtur.
-            pPoseStack.translate(0.5D, 0.88D, 0.5D);
-
-            // Yatırma: Yere paralel durması için
+            pPoseStack.translate(0.5D, 0.72D, 0.5D); // 11px yüksekliğe göre
             pPoseStack.mulPose(Axis.XP.rotationDegrees(90f));
-
-            // Ölçek: Depot'un sınırlarını taşmaması için biraz daha küçülttük
             pPoseStack.scale(0.55f, 0.55f, 0.55f);
 
             ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
-
-            itemRenderer.renderStatic(
-                    stack,
-                    ItemDisplayContext.FIXED,
-                    lightAbove,
-                    pPackedOverlay,
-                    pPoseStack,
-                    pBufferSource,
-                    level,
-                    0
-            );
+            itemRenderer.renderStatic(stack, ItemDisplayContext.FIXED, lightAbove, pPackedOverlay, pPoseStack, pBufferSource, level, 0);
 
             pPoseStack.popPose();
         }

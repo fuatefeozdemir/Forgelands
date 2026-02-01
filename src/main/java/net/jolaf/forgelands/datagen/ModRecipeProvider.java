@@ -20,21 +20,21 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     @Override
     protected void buildRecipes(RecipeOutput pRecipeOutput) {
-        List<ItemLike> ORICHALCUM_SMELTABLES = List.of(ModItems.TUNGSTEN.get(), ModBlocks.TUNGSTEN_ORE.get());
+        List<ItemLike> ORICHALCUM_SMELTABLES = List.of(ModItems.TUNGSTEN_INGOT.get(), ModBlocks.TUNGSTEN_ORE.get());
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.TUNGSTEN_BLOCK.get())
                 .pattern("AAA")
                 .pattern("AAA")
                 .pattern("AAA")
-                .define('A', ModItems.TUNGSTEN.get())
-                .unlockedBy(getHasName(ModItems.TUNGSTEN.get()), has(ModItems.TUNGSTEN.get())).save(pRecipeOutput);
+                .define('A', ModItems.TUNGSTEN_INGOT.get())
+                .unlockedBy(getHasName(ModItems.TUNGSTEN_INGOT.get()), has(ModItems.TUNGSTEN_INGOT.get())).save(pRecipeOutput);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.TUNGSTEN.get(), 9)
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.TUNGSTEN_INGOT.get(), 9)
                 .requires(ModBlocks.TUNGSTEN_BLOCK.get())
                 .unlockedBy(getHasName(ModBlocks.TUNGSTEN_BLOCK.get()), has(ModBlocks.TUNGSTEN_BLOCK.get())).save(pRecipeOutput);
 
-        oreSmelting(pRecipeOutput, ORICHALCUM_SMELTABLES, RecipeCategory.MISC, ModItems.TUNGSTEN.get(), 0.25f, 200, "orichalcum");
-        oreBlasting(pRecipeOutput, ORICHALCUM_SMELTABLES, RecipeCategory.MISC, ModItems.TUNGSTEN.get(), 0.25f, 100, "orichalcum");
+        oreSmelting(pRecipeOutput, ORICHALCUM_SMELTABLES, RecipeCategory.MISC, ModItems.TUNGSTEN_INGOT.get(), 0.25f, 200, "orichalcum");
+        oreBlasting(pRecipeOutput, ORICHALCUM_SMELTABLES, RecipeCategory.MISC, ModItems.TUNGSTEN_INGOT.get(), 0.25f, 100, "orichalcum");
 
     }
 

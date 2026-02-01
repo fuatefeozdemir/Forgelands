@@ -15,10 +15,10 @@ public class ModCreativeModeTabs {
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Forgelands.MOD_ID);
 
     public static final RegistryObject<CreativeModeTab> ALEXANDRITE_ITEMS_TAB = CREATIVE_MODE_TABS.register("forgelands_tab",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.TUNGSTEN.get()))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.TUNGSTEN_INGOT.get()))
                     .title(Component.translatable("creativetab.forgelands.Forgelands"))
                     .displayItems((itemDisplayParameters, output) -> {
-                        output.accept(ModItems.TUNGSTEN.get());
+                        output.accept(ModItems.TUNGSTEN_INGOT.get());
                         output.accept(ModItems.RAW_TUNGSTEN.get());
 
                         output.accept(ModItems.COAL_DUST.get());

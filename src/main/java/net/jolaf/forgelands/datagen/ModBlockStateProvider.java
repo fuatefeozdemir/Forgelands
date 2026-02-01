@@ -35,12 +35,12 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 .texture("up", modLoc("block/crusherblock_top"))
                 .texture("side", modLoc("block/crusherblock_side"));
 
-        // Eleman tanımı (0-13px yükseklik)
         crusherModel.element()
                 .from(0, 0, 0)
-                .to(16, 13, 16)
+                .to(16, 11, 16)
+                .shade(false)
                 .face(Direction.DOWN).texture("#down").cullface(Direction.DOWN).end()
-                .face(Direction.UP).texture("#up").end() // CULLFACE YOK: Bu siyahlığı bitirir
+                .face(Direction.UP).texture("#up").end()
                 .face(Direction.NORTH).texture("#side").end()
                 .face(Direction.SOUTH).texture("#side").end()
                 .face(Direction.EAST).texture("#side").end()
